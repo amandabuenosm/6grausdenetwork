@@ -10,9 +10,9 @@ let dados_FilmesAtores = [];
 
 // leitura do arquivo JSON
 try { 
-  dados_FilmesAtores = JSON.parse(fs.readFileSync('latest_filmes.json', 'utf8'));
+  dados_FilmesAtores = JSON.parse(fs.readFileSync('latest_movies.json', 'utf8'));
 } catch (err) {
-  console.error('Erro ao parsear e realizar a leitura do arquivo "latest_filmes.json":', err);
+  console.error('Erro ao parsear e realizar a leitura do arquivo "latest_movies.json":', err);
 }
 
 // estrutura para o grafo
@@ -85,6 +85,21 @@ class GrafoPai {
     return caminhos;
   }
 }
+
+// percorrer o grafo baseado nos dados do JSON
+const grafoFilho = new GrafoPai();
+
+dados_FilmesAtores.forEach(filme => {
+  const nomefilme = nomefilme.title;
+  grafoFilho.adicionarVert(nomefilme);
+
+  // para cada ator do filme = cria aresta entre filme e ator
+  if (filme.cast && Array.isArray(filme.cast)) {
+    filme.cast.forEach(atorPercorrido => {
+      grafoFilho.adicionarAresta(nomefilme, atorPercorrido);
+    });
+  }
+});
 
 app.listen(porta, () => {
   console.log(`Servidor rodando na porta ${porta}`);
