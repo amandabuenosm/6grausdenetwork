@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <title>6 Graus de Network</title>
+  <!-- <link href="link de icone do google/diretorio da pasta" rel="stylesheet"> -->
+  <!-- <link rel="stylesheet" href="diretorio do css"> -->
 </head>
-  <body>
-    <div class="buscadecaminhos">
+
+<body>
+
+  <div class="container">
     <h1>6 Graus de Network</h1>
-  <div>
-    <label for="atororigem">Ator de Origem:</label>
-    <select id="atororigem"></select>
-  </div>
-  <div>
-    <label for="atoralvo">Ator de Destino:</label>
-    <select id="atoralvo"></select>
-  </div>
-  <div class="botoes">
-    <button id="buscabfs">Buscar Menor Caminho</button>
-    <button id="buscadfs">Buscar Todos os Caminhos (Máximo 6 graus)</button>
-  </div>
+    <div>
+      <label for="atorInicio">Ator de Origem:</label>
+      <select id="atorInicio"></select>
+    </div>
+    <div>
+      <label for="atorAlvo">Ator de Destino:</label>
+      <select id="atorAlvo"></select>
+    </div>
+    <div class="botoes">
+      <button id="buscabfs">Buscar Menor Caminho</button>
+      <button id="buscadfs">Buscar Todos os Caminhos (Máximo 6 graus)</button>
+    </div>
     <div class="result" id="result"></div>
   </div>
-  </body>
+
+</body>
+
 </html>
