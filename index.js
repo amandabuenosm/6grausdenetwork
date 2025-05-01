@@ -90,7 +90,7 @@ class GrafoPai {
 const grafoFilho = new GrafoPai();
 
 dados_FilmesAtores.forEach(filme => {
-  const nomefilme = nomefilme.title;
+  const nomefilme = filme.title;
   grafoFilho.adicionarVert(nomefilme);
 
   // para cada ator do filme = cria aresta entre filme e ator
@@ -98,6 +98,52 @@ dados_FilmesAtores.forEach(filme => {
     filme.cast.forEach(atorPercorrido => {
       grafoFilho.adicionarAresta(nomefilme, atorPercorrido);
     });
+  }
+});
+
+// função de listagem dos atores
+app.use('/atores', (req, res) => {
+  let atores = []; 
+  dados_FilmesAtores.forEach(filme => {
+    if (filme.cast && Array.isArray(filme.cast)) {
+      filme.cast.forEach(atorPercorrido => {
+        if (!atores.includes(atorPercorrido)) {
+          atores.push(atorPercorrido);
+        }
+      });
+    }
+  }); res.json({ atores });
+});
+
+// função de busca do menor caminho entre dois atores
+app.get('/search', (req, res) => {
+  const { comeco, final } = req.query;
+  if (!comeco || !final) {
+    return res.status(400).json({ error: "Os parâmetros principais Ator Origem e Ator Alvo são obrigatórios!"});
+  }
+  const caminho = grafoFilho.buscaLarg(comeco, final);
+  if (caminho) {
+    res.json({ caminho, length: caminho.length - 1 });
+  } else {
+    res.status(404).json({ error: "Nenhuma relação encontrada dentro de 6 graus!" });
+  }
+});
+
+// função para buscar todos os caminhos em até 6 graus entre dois atores
+app.get('/searchAll', (req, res) => {
+  const { comeco, final } = req.query;
+  if (!comeco || !final) {
+    return res.status(400).json({ error: "Os parâmetros principais Ator Origem e Ator Alvo são obrigatórios!"});
+  }
+  const todoscaminhos = grafoFilho.buscaTodosCaminhos(comeco, final, 6);
+  if (todoscaminhos && todoscaminhos.length > 0) {
+
+    // para cada caminho, existe um comprimento
+    const result = todoscaminhos.map(caminho => ({
+      caminho, length: caminho.length - 1
+    })); res.json({ caminhos: result });
+  } else {
+    res.status(404).json({ error: "Nenhuma relação encontrada dentro de 6 graus!" });
   }
 });
 
