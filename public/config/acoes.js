@@ -23,6 +23,37 @@ document.getElementById('buscabfs').addEventListener('click', () => {
     const comeco = document.getElementById('atorInicio').value;
     const final = document.getElementById('atorAlvo').value;
 
+    fetch(`/search?comeco=${comeco}&final=${final}`)
+    .then(response => response.json())
+    .then(data => {
+        const resultBusca = document.getElementById('result');
+        if (data.error) {
+            resultBusca.innerHTML = `<p>${data.error}</p>`;
+        } else {
+            resultBusca.innerHTML = `<p><strong>Menor Caminho:</strong> ${data.caminho.join(' -> ')}</p>
+            <p><strong>Comprimento do Caminho:</strong> ${data.length} aresta(s)</p>`;
+        }
+    });
+});
 
-    
+// botão de busca de todos os caminhos em até 6 arestas
+document.getElementById('buscadfs').addEventListener('click', () => {
+    const comeco = document.getElementById('atorInicio').value;
+    const final = document.getElementById('atorAlvo').value;
+
+    fetch(`/searchAll?comeco=${comeco}&final=${final}`)
+    .then(response => response.json())
+    .then(data => {
+        const resultBusca = document.getElementById('result');
+        if (data.error) {
+            resultBusca.innerHTML = `<p>${data.error}</p>`;
+        } else {
+            let html = `<h3>Todos os caminhos encontrados:</h3>`;
+            data.caminhos.forEach((item, index) => {
+                html += `<p><strong>Caminho ${index + 1}:</strong> ${item.caminho.join(' -> ')}
+                (Comprimento: ${item.length} aresta(s))</p>`;
+            });
+            resultBusca.innerHTML = html;
+        }
+    });
 });
