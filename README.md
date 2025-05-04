@@ -13,5 +13,3 @@ COMO EXECUTAR:
 - Nesse projeto, já existem os arquivos "package-lock.json" e "package.json" com as dependências necessárias do Node Express, porém ainda há alguns módulos que serão usados na aplicação.
 - Ainda no terminal, dirija-se até a pasta em que está o projeto, e digite "npm install" para instalar os módulos.
 - Para iniciar o servidor localmente digite "nodemon index.js". Aguarde confirmação e abra no navegador o link "http://localhost:3000".
-
-INFORMAÇÕES ADICIONAIS: a aplicação está disponível para acesso público por meio do seguinte endereço: https://6-graus-networks.vercel.app/
