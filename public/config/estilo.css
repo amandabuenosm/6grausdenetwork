@@ -65,33 +65,3 @@ body {
     font-size: 15px;
     padding: 10px;
   }
-
-  /* Media Querie */
-  @media (max-width: 600px) {
-    .container {
-      width: 90%;
-      padding: 20px;
-    }
-  
-    h1 {
-      font-size: 38px;
-    }
-  
-    label {
-      font-size: 18px;
-    }
-  
-    button {
-      padding: 14px;
-      font-size: 18px;
-    }
-  
-    select {
-      height: 45px;
-      font-size: 18px;
-    }
-  
-    .result {
-      font-size: 16px;
-    }
-  }
