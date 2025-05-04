@@ -3,39 +3,28 @@
 
 <head>
   <meta charset="UTF-8">
+	<meta name="keywords" content="pesquisas remuneradas, sites freelance, renda extra online">
+  <meta name="description" content="Site de Organização de Várias Plataformas de Renda Extra">
+	<meta name="robots" content="index, follow">
+  <link href="https://fonts.googleapis.com/css2?family=Rouge+Script&family=Bad+Script&family=Outfit&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./config/estilo.css">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3939/3939867.png" type="image/x-icon">
   <title>6 Graus de Network</title>
-  <!-- <link href="link de icone do google/diretorio da pasta" rel="stylesheet"> -->
-  <!-- <link rel="stylesheet" href="diretorio do css"> -->
 </head>
-  <style>
-  body {
-    background-color: blueviolet;
-    display: flex;
-    justify-content: center;
-  }
-
-  .container {
-    background-color: cornflowerblue;
-    width: 65%;
-    gap: 20px;
-    padding-block: 4px 30px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-</style>
 
 <body>
 
   <div class="container">
     <h1>6 Graus de Network</h1>
-    <div>
-      <label for="atorInicio">Ator de Origem:</label>
-      <select id="atorInicio"></select>
-    </div>
-    <div>
-      <label for="atorAlvo">Ator de Destino:</label>
-      <select id="atorAlvo"></select>
+    <div class="atores">
+      <div>
+        <label for="atorInicio">Ator de Origem:</label>
+        <select id="atorInicio"></select>
+      </div>
+      <div>
+        <label for="atorAlvo">Ator de Destino:</label>
+        <select id="atorAlvo"></select>
+      </div>
     </div>
     <div class="botoes">
       <button id="buscabfs">Buscar Menor Caminho</button>
