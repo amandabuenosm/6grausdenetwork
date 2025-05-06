@@ -30,8 +30,8 @@ document.getElementById('buscabfs').addEventListener('click', () => {
         if (data.error) {
             resultBusca.innerHTML = `<p>${data.error}</p>`;
         } else {
-            resultBusca.innerHTML = `<p><strong>Menor Caminho:</strong> ${data.caminho.join(' -> ')}</p>
-            <p><strong>Comprimento do Caminho:</strong> ${data.length} aresta(s)</p>`;
+            resultBusca.innerHTML = `<p><strong>MENOR CAMINHO:</strong> ${data.caminho.join(' -> ')}</p>
+            <p><strong>COMPRIMENTO DO MENOR CAMINHO:</strong> ${data.length} aresta(s)</p>`;
         }
     });
 });
@@ -48,10 +48,10 @@ document.getElementById('buscadfs').addEventListener('click', () => {
         if (data.error) {
             resultBusca.innerHTML = `<p>${data.error}</p>`;
         } else {
-            let html = `<h3>Todos os caminhos encontrados:</h3>`;
+            let html = `<h3>CAMINHOS ENCONTRADOS EM ATÉ 6 ARESTAS:</h3>`;
             data.caminhos.forEach((item, index) => {
-                html += `<p><strong>Caminho ${index + 1}:</strong> ${item.caminho.join(' -> ')}
-                (Comprimento: ${item.length} aresta(s))</p>`;
+                html += `<p><strong>CAMINHO ${index + 1}:</strong> ${item.caminho.join(' -> ')}
+                (COMPRIMENTO DO CAMINHO: ${item.length} aresta(s))</p>`;
             });
             resultBusca.innerHTML = html;
         }
