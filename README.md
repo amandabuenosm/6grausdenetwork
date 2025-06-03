@@ -6,10 +6,3 @@ OBJETIVO:
   - Localizar o menor caminho entre dois atores;
   - Exibir conexões com no máximo 6 arestas;
 3. Listar os resultados em uma interface para o usuário. 
-
-COMO EXECUTAR: 
-- Instalar o pacote Node.js por esse link https://nodejs.org/pt.
-- Depois de instalado, abra o terminal e digite "node -v" para verificar a versão (indica se foi baixado corretamente). Se exibir a versão, foi instalado com sucesso.
-- Nesse projeto, já existem os arquivos "package-lock.json" e "package.json" com as dependências necessárias do Node Express, porém ainda há alguns módulos que serão usados na aplicação.
-- Ainda no terminal, dirija-se até a pasta em que está o projeto, e digite "npm install" para instalar os módulos.
-- Para iniciar o servidor localmente digite "nodemon index.js". Aguarde confirmação e abra no navegador o link "http://localhost:3000".
